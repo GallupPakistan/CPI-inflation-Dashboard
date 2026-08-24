@@ -104,10 +104,10 @@ with tab1:
             cur = prices.iloc[-1]; mn = prices.min(); mx = prices.max(); avg = prices.mean()
             chg = (prices.iloc[-1] - prices.iloc[0]) / prices.iloc[0] * 100 if prices.iloc[0] else 0
             col.markdown(f"""
-            <div style='background:#111827;border:1px solid #1F2937;border-radius:8px;padding:12px;'>
+            <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:8px;padding:12px;'>
               <p style='color:#E8A020;font-size:11px;font-weight:700;margin:0 0 4px 0;'>{label[:32]}</p>
-              <p style='color:#F9FAFB;font-size:20px;font-weight:700;margin:0;'>Rs {cur:,.2f}</p>
-              <p style='color:#9CA3AF;font-size:11px;margin:4px 0 0 0;'>
+              <p style='color:#111827;font-size:20px;font-weight:700;margin:0;'>Rs {cur:,.2f}</p>
+              <p style='color:#4B5563;font-size:11px;margin:4px 0 0 0;'>
                 Min Rs {mn:,.2f} · Max Rs {mx:,.2f}<br>
                 Avg Rs {avg:,.2f} · Change <span style='color:{"#EF4444" if chg>0 else "#10B981"}'>{chg:+.1f}%</span>
               </p>
@@ -290,7 +290,7 @@ with tab5:
         z=mom_sub.values.T,
         x=mom_sub.index.strftime("%b %y").tolist(),
         y=[short_map.get(c,"")[:30] for c in mom_sub.columns],
-        colorscale=[[0,"#10B981"],[0.4,"#1F2937"],[0.5,"#1F2937"],[1,"#EF4444"]],
+        colorscale=[[0,"#10B981"],[0.4,"#E5E7EB"],[0.5,"#E5E7EB"],[1,"#EF4444"]],
         zmid=0,
         colorbar=dict(title=dict(text="MoM %", font=dict(color=MUTED)), tickfont=dict(color=MUTED)),
         hovertemplate="<b>%{y}</b><br>%{x}: %{z:.2f}%<extra></extra>",
