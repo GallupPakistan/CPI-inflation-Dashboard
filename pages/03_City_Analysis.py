@@ -95,18 +95,18 @@ with tab1:
             spread   = dearest["Price"] - cheapest["Price"]
             spread_pct = spread / cheapest["Price"] * 100
             st.markdown(f"""
-            <div style='background:#111827;border:1px solid #1F2937;border-radius:10px;padding:16px;'>
+            <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:16px;'>
             <p style='color:#E8A020;font-size:12px;font-weight:700;margin:0 0 12px 0;'>CITY STATS</p>
-            <p style='color:#9CA3AF;font-size:11px;margin:0;'>DEAREST CITY</p>
+            <p style='color:#4B5563;font-size:11px;margin:0;'>DEAREST CITY</p>
             <p style='color:#EF4444;font-size:16px;font-weight:700;margin:2px 0 10px 0;'>
               {dearest["City"]}<br><span style='font-size:13px;'>Rs {dearest["Price"]:,.2f}</span></p>
-            <p style='color:#9CA3AF;font-size:11px;margin:0;'>CHEAPEST CITY</p>
+            <p style='color:#4B5563;font-size:11px;margin:0;'>CHEAPEST CITY</p>
             <p style='color:#10B981;font-size:16px;font-weight:700;margin:2px 0 10px 0;'>
               {cheapest["City"]}<br><span style='font-size:13px;'>Rs {cheapest["Price"]:,.2f}</span></p>
-            <p style='color:#9CA3AF;font-size:11px;margin:0;'>PRICE SPREAD</p>
-            <p style='color:#F9FAFB;font-size:16px;font-weight:700;margin:2px 0 10px 0;'>
+            <p style='color:#4B5563;font-size:11px;margin:0;'>PRICE SPREAD</p>
+            <p style='color:#111827;font-size:16px;font-weight:700;margin:2px 0 10px 0;'>
               Rs {spread:,.2f}<br><span style='font-size:13px;color:#F59E0B;'>+{spread_pct:.1f}% premium</span></p>
-            {"<p style='color:#9CA3AF;font-size:11px;margin:0;'>NATIONAL AVG</p><p style='color:#E8A020;font-size:16px;font-weight:700;margin:2px 0 0 0;'>Rs "+f"{nat_avg:,.2f}</p>" if nat_avg else ""}
+            {"<p style='color:#4B5563;font-size:11px;margin:0;'>NATIONAL AVG</p><p style='color:#E8A020;font-size:16px;font-weight:700;margin:2px 0 0 0;'>Rs "+f"{nat_avg:,.2f}</p>" if nat_avg else ""}
             </div>
             """, unsafe_allow_html=True)
 
@@ -117,7 +117,7 @@ with tab1:
                 st.markdown(f"""
                 <div style='display:flex;align-items:center;gap:8px;margin:4px 0;'>
                   <div style='width:12px;height:12px;border-radius:2px;background:{color};'></div>
-                  <span style='color:#9CA3AF;font-size:11px;'>{region} ({len(cities_in)})</span>
+                  <span style='color:#4B5563;font-size:11px;'>{region} ({len(cities_in)})</span>
                 </div>""", unsafe_allow_html=True)
 
     # City rankings for ALL items latest month
@@ -135,7 +135,7 @@ with tab1:
         z=city_norm.values,
         x=[short_map.get(c, str(c))[:25] for c in city_norm.columns],
         y=city_norm.index.tolist(),
-        colorscale=[[0,"#10B981"],[0.85,"#1F2937"],[1,"#EF4444"]],
+        colorscale=[[0,"#10B981"],[0.85,"#E5E7EB"],[1,"#EF4444"]],
         zmid=100,
         colorbar=dict(title=dict(text="Title", font=dict(color=MUTED)), tickfont=dict(color=MUTED)),
         hovertemplate="<b>%{y}</b> — %{x}<br>%{z:.1f}% of national avg<extra></extra>",
@@ -206,7 +206,7 @@ with tab3:
         z=city_item_norm.values,
         x=x_labels_ci,
         y=city_item_norm.index.tolist(),
-        colorscale=[[0,"#10B981"],[0.85,"#1F2937"],[1,"#EF4444"]],
+        colorscale=[[0,"#10B981"],[0.85,"#E5E7EB"],[1,"#EF4444"]],
         zmid=100,
         colorbar=dict(title=dict(text="Title", font=dict(color=MUTED)), tickfont=dict(color=MUTED)),
         hovertemplate="<b>%{y}</b> — %{x}<br>%{z:.1f}% of item avg<extra></extra>",
