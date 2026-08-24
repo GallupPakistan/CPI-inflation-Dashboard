@@ -173,7 +173,7 @@ with tab2:
         z=cat_yoy_df.values.T,
         x=cat_yoy_df.index.strftime("%b %y").tolist(),
         y=cat_yoy_df.columns.tolist(),
-        colorscale=[[0,"#10B981"],[0.35,"#1F2937"],[0.5,"#1F2937"],[1,"#EF4444"]],
+        colorscale=[[0,"#10B981"],[0.35,"#E5E7EB"],[0.5,"#E5E7EB"],[1,"#EF4444"]],
         zmid=0,
         colorbar=dict(title="Avg YoY %", tickfont=dict(color=MUTED)),
         hovertemplate="<b>%{y}</b><br>%{x}: %{z:.2f}%<extra></extra>",
@@ -196,15 +196,15 @@ with tab3:
         for _, row in alerts.iterrows():
             color = DOWN if row["YoY%"] > 20 else "#F59E0B"
             st.markdown(f"""
-            <div style='background:#111827;border-left:4px solid {color};border-radius:0 8px 8px 0;
+            <div style='background:#FFFFFF;border-left:4px solid {color};border-radius:0 8px 8px 0;
                 padding:10px 16px;margin:4px 0;display:flex;justify-content:space-between;align-items:center;'>
               <div>
-                <p style='color:#F9FAFB;font-size:14px;font-weight:600;margin:0;'>{row["Short"]}</p>
-                <p style='color:#9CA3AF;font-size:11px;margin:2px 0 0 0;'>{row["Category"]} &nbsp;|&nbsp; Rs {row["Price"]:,.2f}</p>
+                <p style='color:#111827;font-size:14px;font-weight:600;margin:0;'>{row["Short"]}</p>
+                <p style='color:#4B5563;font-size:11px;margin:2px 0 0 0;'>{row["Category"]} &nbsp;|&nbsp; Rs {row["Price"]:,.2f}</p>
               </div>
               <div style='text-align:right;'>
                 <p style='color:{color};font-size:18px;font-weight:700;margin:0;'>▲ {row["YoY%"]:.1f}%</p>
-                <p style='color:#9CA3AF;font-size:11px;margin:2px 0 0 0;'>MoM: {row["MoM%"]:+.2f}%</p>
+                <p style='color:#4B5563;font-size:11px;margin:2px 0 0 0;'>MoM: {row["MoM%"]:+.2f}%</p>
               </div>
             </div>
             """, unsafe_allow_html=True)
@@ -217,15 +217,15 @@ with tab3:
     else:
         for _, row in deflation.iterrows():
             st.markdown(f"""
-            <div style='background:#111827;border-left:4px solid #10B981;border-radius:0 8px 8px 0;
+            <div style='background:#FFFFFF;border-left:4px solid #10B981;border-radius:0 8px 8px 0;
                 padding:10px 16px;margin:4px 0;display:flex;justify-content:space-between;align-items:center;'>
               <div>
-                <p style='color:#F9FAFB;font-size:14px;font-weight:600;margin:0;'>{row["Short"]}</p>
-                <p style='color:#9CA3AF;font-size:11px;margin:2px 0 0 0;'>{row["Category"]} &nbsp;|&nbsp; Rs {row["Price"]:,.2f}</p>
+                <p style='color:#111827;font-size:14px;font-weight:600;margin:0;'>{row["Short"]}</p>
+                <p style='color:#4B5563;font-size:11px;margin:2px 0 0 0;'>{row["Category"]} &nbsp;|&nbsp; Rs {row["Price"]:,.2f}</p>
               </div>
               <div style='text-align:right;'>
                 <p style='color:#10B981;font-size:18px;font-weight:700;margin:0;'>▼ {abs(row["YoY%"]):.1f}%</p>
-                <p style='color:#9CA3AF;font-size:11px;margin:2px 0 0 0;'>MoM: {row["MoM%"]:+.2f}%</p>
+                <p style='color:#4B5563;font-size:11px;margin:2px 0 0 0;'>MoM: {row["MoM%"]:+.2f}%</p>
               </div>
             </div>
             """, unsafe_allow_html=True)
@@ -268,10 +268,10 @@ with tab4:
             sub = snap[snap["S. No"].isin(snos)]
             avg = sub["YoY%"].mean()
             st.markdown(f"""
-            <div style='background:#111827;border:1px solid #1F2937;border-radius:10px;padding:16px;text-align:center;'>
+            <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:16px;text-align:center;'>
               <p style='color:{color};font-size:12px;font-weight:700;margin:0 0 6px 0;'>{label}</p>
-              <p style='color:#F9FAFB;font-size:26px;font-weight:700;margin:0;'>{avg:+.1f}%</p>
-              <p style='color:#9CA3AF;font-size:11px;margin:4px 0 0 0;'>Avg YoY · {len(sub)} items</p>
+              <p style='color:#111827;font-size:26px;font-weight:700;margin:0;'>{avg:+.1f}%</p>
+              <p style='color:#4B5563;font-size:11px;margin:4px 0 0 0;'>Avg YoY · {len(sub)} items</p>
             </div>
             """, unsafe_allow_html=True)
 
@@ -312,7 +312,7 @@ with tab5:
         z=cat_ann_df.values.T,
         x=cat_ann_df.index.astype(str).tolist(),
         y=cat_ann_df.columns.tolist(),
-        colorscale=[[0,"#10B981"],[0.3,"#1F2937"],[0.5,"#1F2937"],[1,"#EF4444"]],
+        colorscale=[[0,"#10B981"],[0.3,"#E5E7EB"],[0.5,"#E5E7EB"],[1,"#EF4444"]],
         zmid=0,
         colorbar=dict(title="Avg YoY %", tickfont=dict(color=MUTED)),
         hovertemplate="<b>%{y}</b><br>%{x}: %{z:.1f}%<extra></extra>",
