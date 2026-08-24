@@ -248,7 +248,7 @@ with tab1:
             x=hist_idx, y=hist_vals,
             name='Actual',
             mode='lines+markers',
-            line=dict(color='#F9FAFB', width=2.5),
+            line=dict(color='#111827', width=2.5),
             marker=dict(size=4),
             hovertemplate='%{x}<br>Rs %{y:,.2f}<extra>Actual</extra>',
         ))
@@ -300,10 +300,10 @@ with tab1:
             color = DOWN if pct > 5 else (UP if pct < -5 else "#F59E0B")
             arrow = "▲" if pct > 0 else "▼"
             col.markdown(f"""
-            <div style='background:#111827;border:1px solid #1F2937;border-radius:8px;
+            <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:8px;
                 padding:10px 12px;text-align:center;'>
-              <p style='color:#9CA3AF;font-size:10px;margin:0;'>{dt.strftime("%b %Y")}</p>
-              <p style='color:#F9FAFB;font-size:18px;font-weight:700;margin:4px 0;'>Rs {val:,.0f}</p>
+              <p style='color:#4B5563;font-size:10px;margin:0;'>{dt.strftime("%b %Y")}</p>
+              <p style='color:#111827;font-size:18px;font-weight:700;margin:4px 0;'>Rs {val:,.0f}</p>
               <p style='color:{color};font-size:12px;margin:0;'>{arrow} {abs(pct):.1f}%</p>
               <p style='color:#6B7280;font-size:9px;margin:2px 0 0 0;'>
                 {fc["lower_95"][i]:,.0f}–{fc["upper_95"][i]:,.0f}</p>
@@ -311,7 +311,7 @@ with tab1:
 
         # Model explanation box
         st.markdown(f"""
-        <div style='background:#1F2937;border-left:3px solid #E8A020;border-radius:0 8px 8px 0;
+        <div style='background:#E5E7EB;border-left:3px solid #E8A020;border-radius:0 8px 8px 0;
             padding:12px 16px;margin-top:16px;'>
           <p style='color:#E8A020;font-size:12px;font-weight:600;margin:0 0 6px 0;'>
             MODEL: {"Holt-Winters (Triple Exponential Smoothing)" if fc["model"]=="HW" else "SARIMA(1,1,1)(1,1,1,12)"}</p>
@@ -325,7 +325,7 @@ with tab1:
             "1 MA term + same seasonal terms at lag 12. Confidence intervals from model prediction intervals."
             }
           </p>
-          <p style='color:#9CA3AF;font-size:11px;margin:6px 0 0 0;'>
+          <p style='color:#4B5563;font-size:11px;margin:6px 0 0 0;'>
             Auto-selected by comparing 6-month validation MAPE: this model had lower error than the alternative.</p>
         </div>
         """, unsafe_allow_html=True)
@@ -448,25 +448,25 @@ with tab3:
     with col1:
         good = (acc_df['Val MAPE %'] < 10).sum()
         st.markdown(f"""
-        <div style='background:#111827;border:1px solid #1F2937;border-radius:10px;padding:14px;text-align:center;'>
+        <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px;text-align:center;'>
           <p style='color:#10B981;font-size:12px;font-weight:600;margin:0;'>MAPE &lt; 10% (Excellent)</p>
-          <p style='color:#F9FAFB;font-size:32px;font-weight:800;margin:4px 0;'>{good}</p>
+          <p style='color:#111827;font-size:32px;font-weight:800;margin:4px 0;'>{good}</p>
           <p style='color:#6B7280;font-size:11px;margin:0;'>items</p>
         </div>""", unsafe_allow_html=True)
     with col2:
         ok = ((acc_df['Val MAPE %'] >= 10) & (acc_df['Val MAPE %'] < 25)).sum()
         st.markdown(f"""
-        <div style='background:#111827;border:1px solid #1F2937;border-radius:10px;padding:14px;text-align:center;'>
+        <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px;text-align:center;'>
           <p style='color:#F59E0B;font-size:12px;font-weight:600;margin:0;'>MAPE 10–25% (Good)</p>
-          <p style='color:#F9FAFB;font-size:32px;font-weight:800;margin:4px 0;'>{ok}</p>
+          <p style='color:#111827;font-size:32px;font-weight:800;margin:4px 0;'>{ok}</p>
           <p style='color:#6B7280;font-size:11px;margin:0;'>items</p>
         </div>""", unsafe_allow_html=True)
     with col3:
         hard = (acc_df['Val MAPE %'] >= 25).sum()
         st.markdown(f"""
-        <div style='background:#111827;border:1px solid #1F2937;border-radius:10px;padding:14px;text-align:center;'>
+        <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px;text-align:center;'>
           <p style='color:#EF4444;font-size:12px;font-weight:600;margin:0;'>MAPE &gt; 25% (Volatile)</p>
-          <p style='color:#F9FAFB;font-size:32px;font-weight:800;margin:4px 0;'>{hard}</p>
+          <p style='color:#111827;font-size:32px;font-weight:800;margin:4px 0;'>{hard}</p>
           <p style='color:#6B7280;font-size:11px;margin:0;'>items (perishables)</p>
         </div>""", unsafe_allow_html=True)
 
@@ -512,14 +512,14 @@ with tab3:
         st.plotly_chart(fig_pie, use_container_width=True)
 
         st.markdown(f"""
-        <div style='background:#111827;border:1px solid #1F2937;border-radius:10px;padding:14px;margin-top:8px;'>
+        <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px;margin-top:8px;'>
           <p style='color:#E8A020;font-size:12px;font-weight:600;margin:0 0 8px 0;'>HOW AUTO-SELECTION WORKS</p>
           <p style='color:#D1D5DB;font-size:12px;margin:0 0 6px 0;'>
             Both models are trained on months 1-72 and validated on months 73-78 (6-month holdout).
             Whichever achieves lower MAPE on the validation window is selected.
             The winner is then retrained on all 84 months before forecasting.
           </p>
-          <p style='color:#9CA3AF;font-size:11px;margin:0;'>
+          <p style='color:#4B5563;font-size:11px;margin:0;'>
             <b style='color:#E8A020;'>HW</b> wins on items with stable seasonal patterns (fuel, packaged foods).<br>
             <b style='color:#3B82F6;'>SARIMA</b> wins on items with complex autocorrelation (wheat, LPG, sugar).
           </p>
@@ -573,9 +573,9 @@ with tab4:
     )
 
     st.markdown("""
-    <div style='background:#1F2937;border-radius:8px;padding:12px 16px;margin-top:12px;'>
+    <div style='background:#E5E7EB;border-radius:8px;padding:12px 16px;margin-top:12px;'>
       <p style='color:#E8A020;font-size:12px;font-weight:600;margin:0 0 4px 0;'>⚠️ FORECAST DISCLAIMER</p>
-      <p style='color:#9CA3AF;font-size:11px;margin:0;'>
+      <p style='color:#4B5563;font-size:11px;margin:0;'>
         Forecasts are statistical projections based on historical price patterns (Jan 2019 – Mar 2026).
         They do not account for sudden policy changes, supply shocks, weather events, or geopolitical factors.
         Highly volatile items (tomatoes, potatoes, eggs) have wider uncertainty ranges.
