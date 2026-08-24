@@ -207,7 +207,7 @@ if not st.session_state.chat_history:
       <p style="color:#E8A020;font-size:14px;font-weight:600;margin:0;">
         ⬇️ Type your question in the chat box below or click a suggestion above
       </p>
-      <p style="color:#9CA3AF;font-size:12px;margin:4px 0 0 0;">
+      <p style="color:#4B5563;font-size:12px;margin:4px 0 0 0;">
         Ask about prices, trends, city comparisons, inflation drivers — anything about Pakistan's essential commodities
       </p>
     </div>
