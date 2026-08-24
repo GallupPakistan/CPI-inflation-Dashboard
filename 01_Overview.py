@@ -22,9 +22,9 @@ first_str  = meta["first_month"].strftime("%b %Y")
 
 # ── Gallup Pakistan Branding Hero ────────────────────────────────────────────
 st.markdown(f"""
-<div style="background:linear-gradient(135deg,#0D1220,#111827,#0A0E1A);
+<div style="background:linear-gradient(135deg,#0D1220,#FFFFFF,#FFFFFF);
     border-radius:16px;padding:28px 32px;margin-bottom:24px;
-    border:1px solid #1F2937;position:relative;overflow:hidden;">
+    border:1px solid #E5E7EB;position:relative;overflow:hidden;">
   <!-- Decorative glow -->
   <div style="position:absolute;top:-60px;right:-60px;width:220px;height:220px;
       background:radial-gradient(circle,rgba(232,160,32,0.08),transparent 70%);
@@ -36,11 +36,11 @@ st.markdown(f"""
            onerror="this.style.display='none'">
     </div>
     <div style="flex:1;min-width:200px;">
-      <p style="color:#9CA3AF;font-size:11px;font-weight:600;text-transform:uppercase;
+      <p style="color:#4B5563;font-size:11px;font-weight:600;text-transform:uppercase;
          letter-spacing:0.1em;margin:0 0 4px 0;">Gallup Pakistan Digital Analytics</p>
-      <h1 style="color:#F9FAFB;font-size:26px;font-weight:800;margin:0;line-height:1.2;">
+      <h1 style="color:#111827;font-size:26px;font-weight:800;margin:0;line-height:1.2;">
         Pakistan Commodity Price Tracker</h1>
-      <p style="color:#9CA3AF;font-size:13px;margin:6px 0 0 0;">
+      <p style="color:#4B5563;font-size:13px;margin:6px 0 0 0;">
         Sensitive Price Indicator · {meta['n_items']} essential items · {meta['n_cities']} cities ·
         <span style="color:#E8A020;">Latest: {latest_str}</span> ·
         Coverage: {first_str} – {latest_str}
