@@ -130,20 +130,20 @@ st.markdown(f"""
     ⚠️ ACTIVE GEOPOLITICAL RISK — STRAIT OF HORMUZ CRISIS (Updated: April 20, 2026)</p>
   <div style='display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;'>
     <div>
-      <p style='color:#9CA3AF;font-size:10px;margin:0;font-weight:600;'>CONFLICT STATUS</p>
-      <p style='color:#F9FAFB;font-size:13px;margin:4px 0 0 0;'>US-Israel war on Iran began <b>Feb 28, 2026</b>.
+      <p style='color:#4B5563;font-size:10px;margin:0;font-weight:600;'>CONFLICT STATUS</p>
+      <p style='color:#111827;font-size:13px;margin:4px 0 0 0;'>US-Israel war on Iran began <b>Feb 28, 2026</b>.
       Iran closed Strait of Hormuz <b>Mar 4, 2026</b>.
       Ceasefire Apr 8 — Strait briefly opened Apr 17 — <b>closed again Apr 18</b>.</p>
     </div>
     <div>
-      <p style='color:#9CA3AF;font-size:10px;margin:0;font-weight:600;'>OIL PRICE IMPACT</p>
-      <p style='color:#F9FAFB;font-size:13px;margin:4px 0 0 0;'>Brent crude: <b style='color:#10B981;'>$72/bbl</b> pre-war
+      <p style='color:#4B5563;font-size:10px;margin:0;font-weight:600;'>OIL PRICE IMPACT</p>
+      <p style='color:#111827;font-size:13px;margin:4px 0 0 0;'>Brent crude: <b style='color:#10B981;'>$72/bbl</b> pre-war
       → <b style='color:#EF4444;'>$120/bbl</b> peak → <b style='color:#E8A020;'>$95.42/bbl</b> today.
       20% of global oil supply disrupted.</p>
     </div>
     <div>
-      <p style='color:#9CA3AF;font-size:10px;margin:0;font-weight:600;'>PAKISTAN IMPACT</p>
-      <p style='color:#F9FAFB;font-size:13px;margin:4px 0 0 0;'>Pakistan imports <b>80%+ of oil</b>.
+      <p style='color:#4B5563;font-size:10px;margin:0;font-weight:600;'>PAKISTAN IMPACT</p>
+      <p style='color:#111827;font-size:13px;margin:4px 0 0 0;'>Pakistan imports <b>80%+ of oil</b>.
       Petrol: <b style='color:#10B981;'>Rs 263/L</b> pre-war →
       <b style='color:#EF4444;'>Rs 321/L</b> (Mar 7) →
       <b style='color:#E8A020;'>Rs 366/L</b> (Apr relief package).
@@ -214,7 +214,7 @@ with tab1:
 
     section_header(f"Scenario: {sc['label']}")
     st.markdown(f"""
-    <div style='background:#111827;border-left:3px solid {sc["color"]};border-radius:0 8px 8px 0;
+    <div style='background:#FFFFFF;border-left:3px solid {sc["color"]};border-radius:0 8px 8px 0;
         padding:12px 16px;margin-bottom:16px;'>
       <p style='color:{sc["color"]};font-size:12px;font-weight:700;margin:0 0 4px 0;'>
         PROBABILITY: {sc["probability"]}% &nbsp;|&nbsp; {sc["label"]}</p>
@@ -253,7 +253,7 @@ with tab1:
         x=[d.strftime("%b %y") for d in hist_s.index], y=hist_s.values,
         name="Historical",
         mode="lines+markers",
-        line=dict(color="#F9FAFB", width=2.5),
+        line=dict(color="#111827", width=2.5),
         marker=dict(size=5),
         hovertemplate="%{x}: Rs %{y:,.2f}<extra>Historical</extra>",
     ))
@@ -318,10 +318,10 @@ with tab1:
         color = DOWN if chg > 5 else (UP if chg < -5 else "#F59E0B")
         arrow = "▲" if chg > 0 else "▼"
         col.markdown(f"""
-        <div style='background:#111827;border:1px solid {sc["color"]}44;
+        <div style='background:#FFFFFF;border:1px solid {sc["color"]}44;
             border-radius:8px;padding:10px;text-align:center;'>
-          <p style='color:#9CA3AF;font-size:10px;margin:0;'>{label}</p>
-          <p style='color:#F9FAFB;font-size:17px;font-weight:700;margin:4px 0;'>Rs {price:,.0f}</p>
+          <p style='color:#4B5563;font-size:10px;margin:0;'>{label}</p>
+          <p style='color:#111827;font-size:17px;font-weight:700;margin:4px 0;'>Rs {price:,.0f}</p>
           <p style='color:{color};font-size:11px;margin:0;'>{arrow} {abs(chg):.1f}%</p>
           <p style='color:#6B7280;font-size:9px;margin:2px 0 0;'>Brent ${brent}</p>
         </div>""", unsafe_allow_html=True)
@@ -380,7 +380,7 @@ with tab2:
 
     with col2:
         st.markdown(f"""
-        <div style='background:#111827;border:1px solid #1F2937;border-radius:10px;padding:14px;'>
+        <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:14px;'>
           <p style='color:#E8A020;font-size:12px;font-weight:700;margin:0 0 10px 0;'>OIL BETA EXPLAINED</p>
           <p style='color:#D1D5DB;font-size:12px;margin:0 0 8px 0;'>
             <b style='color:#E8A020;'>Oil Beta</b> = how much Pakistan's price
@@ -409,7 +409,7 @@ with tab2:
             fc  = cur_p * (1 + 1.0 * res)
             chg = (fc - cur_p) / cur_p * 100
             st.markdown(f"""
-            <div style='background:#1F2937;border-left:3px solid {sc_data["color"]};
+            <div style='background:#E5E7EB;border-left:3px solid {sc_data["color"]};
                 border-radius:0 6px 6px 0;padding:8px 12px;margin:4px 0;
                 display:flex;justify-content:space-between;align-items:center;'>
               <span style='color:#E5E7EB;font-size:11px;'>{sc_data["label"][:30]}</span>
@@ -439,32 +439,32 @@ with tab3:
     section_header("How Oil Prices Cascade Into Food Prices")
 
     st.markdown("""
-    <div style='background:#111827;border:1px solid #1F2937;border-radius:10px;padding:16px;margin-bottom:16px;'>
+    <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:16px;margin-bottom:16px;'>
       <p style='color:#E8A020;font-size:12px;font-weight:700;margin:0 0 8px 0;'>TRANSMISSION MECHANISM</p>
       <div style='display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;'>
         <div style='text-align:center;'>
-          <div style='background:#1F2937;border-radius:8px;padding:10px;'>
+          <div style='background:#E5E7EB;border-radius:8px;padding:10px;'>
             <p style='color:#E8A020;font-size:20px;margin:0;'>⛽</p>
-            <p style='color:#F9FAFB;font-size:12px;font-weight:600;margin:4px 0 2px;'>Brent Crude ↑</p>
-            <p style='color:#9CA3AF;font-size:10px;margin:0;'>Hormuz disruption → $95+ /bbl</p>
+            <p style='color:#111827;font-size:12px;font-weight:600;margin:4px 0 2px;'>Brent Crude ↑</p>
+            <p style='color:#4B5563;font-size:10px;margin:0;'>Hormuz disruption → $95+ /bbl</p>
           </div>
         </div>
         <div style='text-align:center;'>
-          <div style='background:#1F2937;border-radius:8px;padding:10px;'>
+          <div style='background:#E5E7EB;border-radius:8px;padding:10px;'>
             <p style='color:#3B82F6;font-size:20px;margin:0;'>🚛</p>
-            <p style='color:#F9FAFB;font-size:12px;font-weight:600;margin:4px 0 2px;'>Transport ↑</p>
-            <p style='color:#9CA3AF;font-size:10px;margin:0;'>Petrol/diesel = 80% of PKR transport cost</p>
+            <p style='color:#111827;font-size:12px;font-weight:600;margin:4px 0 2px;'>Transport ↑</p>
+            <p style='color:#4B5563;font-size:10px;margin:0;'>Petrol/diesel = 80% of PKR transport cost</p>
           </div>
         </div>
-        <div style='background:#1F2937;border-radius:8px;padding:10px;text-align:center;'>
+        <div style='background:#E5E7EB;border-radius:8px;padding:10px;text-align:center;'>
             <p style='color:#10B981;font-size:20px;margin:0;'>🌾</p>
-            <p style='color:#F9FAFB;font-size:12px;font-weight:600;margin:4px 0 2px;'>Fertiliser ↑</p>
-            <p style='color:#9CA3AF;font-size:10px;margin:0;'>30% global urea from Gulf via Hormuz</p>
+            <p style='color:#111827;font-size:12px;font-weight:600;margin:4px 0 2px;'>Fertiliser ↑</p>
+            <p style='color:#4B5563;font-size:10px;margin:0;'>30% global urea from Gulf via Hormuz</p>
         </div>
-        <div style='background:#1F2937;border-radius:8px;padding:10px;text-align:center;'>
+        <div style='background:#E5E7EB;border-radius:8px;padding:10px;text-align:center;'>
             <p style='color:#EF4444;font-size:20px;margin:0;'>🛒</p>
-            <p style='color:#F9FAFB;font-size:12px;font-weight:600;margin:4px 0 2px;'>Food CPI ↑</p>
-            <p style='color:#9CA3AF;font-size:10px;margin:0;'>1–2 month lag, all categories</p>
+            <p style='color:#111827;font-size:12px;font-weight:600;margin:4px 0 2px;'>Food CPI ↑</p>
+            <p style='color:#4B5563;font-size:10px;margin:0;'>1–2 month lag, all categories</p>
         </div>
       </div>
     </div>
@@ -584,7 +584,7 @@ with tab4:
 
     for title, excerpt, url, date in sources:
         st.markdown(f"""
-        <div style='background:#111827;border:1px solid #1F2937;border-radius:8px;
+        <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:8px;
             padding:12px 16px;margin:6px 0;'>
           <div style='display:flex;justify-content:space-between;align-items:flex-start;'>
             <p style='color:#E8A020;font-size:12px;font-weight:600;margin:0 0 4px 0;'>{title}</p>
@@ -598,26 +598,26 @@ with tab4:
     st.markdown("---")
     section_header("Methodology & Assumptions")
     st.markdown("""
-    <div style='background:#111827;border:1px solid #1F2937;border-radius:10px;padding:16px;'>
+    <div style='background:#FFFFFF;border:1px solid #E5E7EB;border-radius:10px;padding:16px;'>
       <p style='color:#E8A020;font-size:12px;font-weight:700;margin:0 0 10px 0;'>MODEL METHODOLOGY</p>
       <p style='color:#D1D5DB;font-size:12px;margin:0 0 8px 0;'>
-        <b style='color:#F9FAFB;'>1. Brent Crude Scenarios</b> — Three geopolitical scenarios
+        <b style='color:#111827;'>1. Brent Crude Scenarios</b> — Three geopolitical scenarios
         (Optimistic/Baseline/Pessimistic) define a 6-month Brent crude price path based on
         current diplomatic signals, ceasefire status, and analyst forecasts (Goldman Sachs,
         IMF, Bloomberg intelligence). Probabilities assigned based on weighted assessment of
         current negotiation status as of April 20, 2026.</p>
       <p style='color:#D1D5DB;font-size:12px;margin:0 0 8px 0;'>
-        <b style='color:#F9FAFB;'>2. Oil Beta Coefficients</b> — Estimated from historical
+        <b style='color:#111827;'>2. Oil Beta Coefficients</b> — Estimated from historical
         correlation between global Brent crude prices and Pakistan SPI/OGRA prices across
         84 months (Jan 2019 – Mar 2026) in DATAFILE.csv. Petrol/Diesel β≈1.0 confirmed
         by OGRA's fortnightly price revision mechanism. LPG, electricity, food betas
         estimated from partial pass-through rates and transport cost share.</p>
       <p style='color:#D1D5DB;font-size:12px;margin:0 0 8px 0;'>
-        <b style='color:#F9FAFB;'>3. Lag Structure</b> — Petrol/Diesel: 0 months (OGRA
+        <b style='color:#111827;'>3. Lag Structure</b> — Petrol/Diesel: 0 months (OGRA
         revises fortnightly). LPG: 1 month. Electricity: 2 months (fuel surcharge quarterly).
         Food: 1–2 months (transport cost pass-through, agricultural input cycle).</p>
       <p style='color:#D1D5DB;font-size:12px;margin:0;'>
-        <b style='color:#F9FAFB;'>4. Limitations</b> — This model does not account for
+        <b style='color:#111827;'>4. Limitations</b> — This model does not account for
         PKR/USD exchange rate movements, domestic subsidy decisions, or supply-side shocks
         unrelated to oil. Government interventions (like PM Shehbaz's April relief package)
         can override market prices temporarily. Treat as indicative risk analysis, not
