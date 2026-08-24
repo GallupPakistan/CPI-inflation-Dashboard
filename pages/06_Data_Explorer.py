@@ -120,7 +120,7 @@ with tab3:
         if not isinstance(v,(int,float)): return ""
         if v>10:  return "color:#EF4444"
         if v<-5:  return "color:#10B981"
-        return "color:#F9FAFB"
+        return "color:#111827"
 
     st.dataframe(
         yoy_show.style.map(_sy).format("{:+.2f}%"),
